@@ -1,11 +1,12 @@
 package logic.usecase
 
-import data.remote.repository.WeatherApi
+import logic.repository.WeatherRepository
+
 
 class GetCurrentLocationUseCase(
-    private val weatherApi: WeatherApi,
+    private val weatherRepository: WeatherRepository,
 ) {
     suspend operator fun invoke(): String {
-        TODO("Implement the use case")
+        return weatherRepository.getCurrentCity()
     }
 }
