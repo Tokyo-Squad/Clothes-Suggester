@@ -1,4 +1,7 @@
 package utils
 
- open class ClothesSuggestionException {
-}
+open class ClothesSuggestionException(message: String) : Exception(message)
+
+class WeatherApiException(message: String) : ClothesSuggestionException(message)
+
+class GeocodingException(message: String) : ClothesSuggestionException(message)
