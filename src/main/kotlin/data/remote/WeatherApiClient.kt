@@ -8,6 +8,9 @@ import io.ktor.client.request.*
 import io.ktor.serialization.kotlinx.json.*
 import data.remote.dto.LocationDto
 import data.remote.dto.WeatherResponseDto
+import io.ktor.client.plugins.ResponseException
+import utils.GeocodingException
+import utils.WeatherApiException
 
 class WeatherApiClient : WeatherApi {
     private val client = HttpClient(CIO) {
