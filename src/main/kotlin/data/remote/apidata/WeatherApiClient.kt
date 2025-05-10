@@ -1,4 +1,4 @@
-package data.remote.repository
+package data.remote.apidata
 
 import io.ktor.client.*
 import io.ktor.client.call.*
