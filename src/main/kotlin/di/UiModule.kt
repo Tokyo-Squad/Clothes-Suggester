@@ -5,6 +5,7 @@ import presentation.ClothesSuggesterUI
 import presentation.io.ConsoleIO
 import presentation.io.ConsoleIOImpl
 
+
 val uiModule = module {
     single { ClothesSuggesterUI(
         get(),
