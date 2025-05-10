@@ -7,8 +7,10 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import logic.repository.WeatherRepository
 import org.junit.jupiter.api.Assertions.assertThrows
+import utils.InvalidCityNameException
 import kotlin.test.BeforeTest
 import kotlin.test.Test
+import kotlin.test.assertFailsWith
 
 class GetCurrentLocationUseCaseTest {
 
@@ -56,8 +58,9 @@ class GetCurrentLocationUseCaseTest {
         coEvery { weatherRepository.getCurrentCity() } returns emptyCity
 
         //When
-        assertThrows(IllegalArgumentException::class.java) {getCurrentLocationUseCase}
-
+        assertFailsWith<InvalidCityNameException> {
+            getCurrentLocationUseCase()
+        }
         //Then
         coVerify(exactly = 1) { weatherRepository.getCurrentCity() }
     }
@@ -69,8 +72,9 @@ class GetCurrentLocationUseCaseTest {
         coEvery { weatherRepository.getCurrentCity() } returns malformedCity
 
         // When / Then
-        assertThrows(IllegalArgumentException::class.java) {getCurrentLocationUseCase}
-
+        assertFailsWith<InvalidCityNameException> {
+            getCurrentLocationUseCase()
+        }
 
         coVerify(exactly = 1) { weatherRepository.getCurrentCity() }
     }

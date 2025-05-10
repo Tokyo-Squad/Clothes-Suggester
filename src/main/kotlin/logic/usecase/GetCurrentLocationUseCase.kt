@@ -1,6 +1,7 @@
 package logic.usecase
 
 import logic.repository.WeatherRepository
+import utils.InvalidCityNameException
 
 
 class GetCurrentLocationUseCase(
@@ -14,11 +15,11 @@ class GetCurrentLocationUseCase(
 
     private fun validateCityName(city: String) {
         if (city.isEmpty()) {
-            throw IllegalArgumentException("City name cannot be empty")
+            throw InvalidCityNameException("City name cannot be empty")
         }
 
         if (!city.all { it.isLetter() || it.isWhitespace() }) {
-            throw IllegalArgumentException("City name contains invalid characters")
+            throw InvalidCityNameException("City name contains invalid characters")
         }
     }
 }
