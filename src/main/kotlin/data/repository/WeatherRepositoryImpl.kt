@@ -1,12 +1,14 @@
 package data.repository
 
 import data.mapper.toWeather
+import data.remote.LocationApi
 import data.remote.WeatherApi
 import logic.model.Weather
 import logic.repository.WeatherRepository
 
 class WeatherRepositoryImpl(
     private val weatherApi: WeatherApi,
+    private val locationApi: LocationApi
 ) : WeatherRepository {
 
     override suspend fun getCurrentWeather(city: String): Weather {
@@ -14,9 +16,8 @@ class WeatherRepositoryImpl(
         return weatherApi.getCurrentWeather(locationDto.latitude, locationDto.longitude).toWeather()
     }
 
-    override suspend fun getCurrentCity(): String {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getCurrentCity()= locationApi.getCurrentCity()
+
 
 
 }
