@@ -7,3 +7,5 @@ class WeatherApiException(message: String) : ClothesSuggestionException(message)
 class GeocodingException(message: String) : ClothesSuggestionException(message)
 
 class InvalidCityNameException(message: String) : ClothesSuggestionException(message)
+
+class LocationApiException(message: String) : ClothesSuggestionException(message)
