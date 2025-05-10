@@ -1,6 +1,6 @@
 package logic.usecase
 
-import data.remote.repository.WeatherApi
+import data.remote.WeatherApi
 
 class GetCurrentLocationUseCase(
     private val weatherApi: WeatherApi,
