@@ -1,4 +1,4 @@
-package data.remote.repository
+package data.remote
 
 import data.remote.dto.LocationDto
 import data.remote.dto.WeatherResponseDto
