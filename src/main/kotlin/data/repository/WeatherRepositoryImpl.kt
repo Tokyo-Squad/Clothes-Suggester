@@ -13,11 +13,12 @@ class WeatherRepositoryImpl(
 
     override suspend fun getCurrentWeather(city: String): Weather {
         val locationDto = weatherApi.geocodeCity(city)
-        return weatherApi.getCurrentWeather(locationDto.latitude, locationDto.longitude).toWeather()
+        return weatherApi.getCurrentWeather(locationDto.locationDtos.get(0).latitude, locationDto.locationDtos.get(0).longitude).toWeather()
     }
 
-    override suspend fun getCurrentCity()= locationApi.getCurrentCity()
-
+    override suspend fun getCurrentCity(): String {
+        return locationApi.getCurrentCity()
+    }
 
 
 }
